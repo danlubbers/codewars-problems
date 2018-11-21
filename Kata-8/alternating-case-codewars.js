@@ -11,21 +11,21 @@
 // "1a2b3c4d5e".toAlternatingCase() === "1A2B3C4D5E"
 // "String.prototype.toAlternatingCase".toAlternatingCase() === "sTRING.PROTOTYPE.TOaLTERNATINGcASE"
 
-
-function toAlternatingCase(str) {
-    let split = str.split('')
-    console.log(split)
-    let arr = []
-    for(let i = 0; i < split.length; i++) {
-        if(split[i] === Number) {
-            } else if(split[i] === split[i].toUpperCase()) {
-                arr.push(split[i].toLowerCase())
-            } else {
-                arr.push(split[i].toUpperCase())
-        }
-    }
-        return arr.join('')
-    }
+// My first Answer
+// function toAlternatingCase(str) {
+//     let split = str.split('')
+//     console.log(split)
+//     let arr = []
+//     for(let i = 0; i < split.length; i++) {
+//         if(split[i] === Number) {
+//             } else if(split[i] === split[i].toUpperCase()) {
+//                 arr.push(split[i].toLowerCase())
+//             } else {
+//                 arr.push(split[i].toUpperCase())
+//         }
+//     }
+//         return arr.join('')
+//     }
     
 console.log(toAlternatingCase('hello world'))
 console.log(toAlternatingCase('HELLO WORLD'))
@@ -33,8 +33,9 @@ console.log(toAlternatingCase('hello WORLD'))
 console.log(toAlternatingCase('12345'))
 console.log(toAlternatingCase('1a2b3c4d5e'))
 
+// My actual answer for Prototype
 String.prototype.toAlternatingCase = function () {
-    let split = String().split('')
+    let split = this.split('')
     console.log(split)
     let arr = []
     for(let i = 0; i < split.length; i++) {
@@ -48,6 +49,10 @@ String.prototype.toAlternatingCase = function () {
     return arr.join('') 
 }
 
+// Best Practice
+String.prototype.toAlternatingCase = function () {
+    return this.split("").map(a => a === a.toUpperCase()? a.toLowerCase(): a.toUpperCase()).join('')
+}
 
 console.log("hello world".toAlternatingCase(), "HELLO WORLD");
 console.log("HELLO WORLD".toAlternatingCase(), "hello world");
