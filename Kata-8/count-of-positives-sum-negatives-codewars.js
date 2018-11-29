@@ -24,15 +24,15 @@ function countPositivesSumNegatives(arr) {
 
 // Using Reduce
 
-const countPositivesSumNegatives = input => {
-    if(input === null || input.length === 0) return [];
-    else {
-        return input.reduce((acc, val) => {
-            if(val > 0) return [acc[0] += 1, acc[1]];
-            else return [acc[0], acc[1] + val];
-        }, [0,0]);
-    }
-}
+// const countPositivesSumNegatives = input => {
+//     if(input === null || input.length === 0) return [];
+//     else {
+//         return input.reduce((acc, val) => {
+//             if(val > 0) return [acc[0] += 1, acc[1]];
+//             else return [acc[0], acc[1] + val];
+//         }, [0,0]);
+//     }
+// }
 
 console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]), [10, -65]);
 console.log(countPositivesSumNegatives(null))
