@@ -1,0 +1,24 @@
+// https://www.codewars.com/kata/reverse-list-order
+
+// In this kata you will create a function that takes in a list and returns a list with the reverse order.
+
+// Examples
+// reverseList([1,2,3,4]) == [4,3,2,1]
+// reverseList([3,1,5,4]) == [4,5,1,3]
+
+// My Answer using reverse
+function reverseList(list) {
+    return list.reverse()
+}
+
+// My Answer using for loop
+function reverseList(list) {
+    let reversed = [];
+    for (let i = list.length - 1; i >= 0; i--) {
+        reversed.push(list[i])
+    }
+    return reversed
+}
+
+console.log(reverseList([1,2,3,4])) // [4,3,2,1]
+console.log(reverseList([3,1,5,4])) // [4,5,1,3]
