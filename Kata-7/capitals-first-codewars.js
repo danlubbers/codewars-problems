@@ -13,18 +13,20 @@ function capitalsFirst(str){
     let split = str.split(' ')
     let newArr = [];  
     
+    // Capitol letter
     for(let i = 0; i < split.length; i++) {
         if(split[i][0] === split[i][0].toUpperCase()) {
             newArr.push(split[i])
         }
     } 
     
+    // Non Capitol letter
     for(let i = 0; i < split.length; i++) {
         if(split[i][0] !== split[i][0].toUpperCase()) {
             newArr.push(split[i])
         }
     }
-    
+
     return newArr.join(' ')
 }
 
