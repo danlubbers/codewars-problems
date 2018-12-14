@@ -7,16 +7,22 @@ function reverse(str) {
     // Targets ALL Double Whitespace
     let regex = /\s\s+/g; 
     let split = str.split(' ')
-    let oddWord = split.map((el, i) => {
+
+    return split.map((e, i) => {
         if(i % 2 === 0) {
-            return el
+            return e
         } else {
-           return el.split('').reverse().join('')
+           return e.split('').reverse().join('')
         }
-    })
-    return oddWord.join(' ').toString().replace(regex, '')
+    }).join(' ').replace(regex, '')
+    
 }
 
+// Best Practice
+// Used Trim() instead of regex to get rid of trailing white spaces
+// const reverse = str => str.trim().split(' ').map((e, i) => i % 2 ===0 ? e : e.split('').reverse().join('')).join(' ');
 
-console.log((reverse("Reverse this string, please!"))) //"Reverse siht string, !esaelp"
+
+// console.log((reverse("Reverse this string, please!"))) //"Reverse siht string, !esaelp"
 console.log((reverse("I really don't like reversing strings!"))) // "I yllaer don't ekil )reversing !sgnirts"
+// console.log(reverse(''))
