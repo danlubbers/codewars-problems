@@ -33,10 +33,12 @@
 //     return Number.isInteger(+s) || !isNaN(+s) || !+s == 0 
 // }
 
-// Third Attempt - Pased 409, Failed 2: Expected False, got true
+// Third Attempt 
 function isDigit(s) {
-    return +s === (+s | 0) || !isNaN(+s)
+    return s == parseFloat(s)
 }
+
+
 
 console.log(isDigit("3"))
 console.log(isDigit("  3  "))
@@ -47,3 +49,4 @@ console.log(isDigit("3-4"))
 console.log(isDigit("  3   5"))
 console.log(isDigit("3 5"))
 console.log(isDigit("zero"))
+
