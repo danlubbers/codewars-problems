@@ -23,6 +23,14 @@ const fizzBuzz = n => n % 15 === 0 ? 'FizzBuzz' : (n % 5 === 0 ? 'Buzz' : (n % 3
 // Best Practice
 const fizzBuzz = n => n%15 ? n%5? n%3 ? n : 'Fizz' : 'Buzz' : "FizzBuzz";
 
+// Another Best Practice
+function fizzBuzz(n) {
+    return  (n % 15 === 0 && 'FizzBuzz') || 
+            (n % 3 === 0 && 'Fizz') ||
+            (n % 5 === 0 && 'Buzz') ||
+            n
+}
+
 console.log(fizzBuzz(1), 1);
 console.log(fizzBuzz(3), "Fizz");
 console.log(fizzBuzz(6), "Fizz");
