@@ -8,21 +8,23 @@
 
 // For an input String: "hey You, Sort me Already!" the function should return: "You, Sort Already! hey me"
 
+// My Answer with for loop
 function capitalsFirst(str){
-    let regex = /^[A-Za-z]+$/;
+    let regexCap = /^[A-Z]+$/;
+    let regexLow = /^[a-z]+$/;
     let split = str.split(' ')
     let newArr = [];  
     
     // Capitol letter
     for(let i = 0; i < split.length; i++) {
-        if(split[i][0] === split[i][0].toUpperCase()) {
+        if(split[i][0].match(regexCap) !== null) {
             newArr.push(split[i])
         }
     } 
     
     // Non Capitol letter
     for(let i = 0; i < split.length; i++) {
-        if(split[i][0] !== split[i][0].toUpperCase()) {
+        if(split[i][0].match(regexLow) !== null) {
             newArr.push(split[i])
         }
     }
@@ -30,22 +32,37 @@ function capitalsFirst(str){
     return newArr.join(' ')
 }
 
-// function capitalsFirst(str) {
-//     console.log(str)
-//         let split = str.split(' ')
-//         let newArr = [];        
-//         let cap = split.map(e => {
-//             if(e[0] === e[0].toUpperCase()) {
-//                 newArr.push(e)
-//             } 
-//         })
-//         let notCap = split.map(e => {
-//             if(e[0] !== e[0].toUpperCase()) {
-//              newArr.push(e)
-//             }
-//             })
-//         return newArr.join(' ')
-//     }
+// Using ES6
+function capitalsFirst(str) {
+        let regexCap = /^[A-Z]+$/;
+        let regexLow = /^[a-z]+$/;
+        let split = str.split(' ')
+        let newArr = [];   
+        
+        // Capitol Letter  
+        let cap = split.map(e => {
+            if(e[0].match(regexCap) !==  null) {
+                newArr.push(e)
+            } 
+        })
+
+        // Non Capitol Letter
+        let notCap = split.map(e => {
+            if(e[0].match(regexLow) !==  null) {
+             newArr.push(e)
+            }
+            })
+
+        return newArr.join(' ')
+    }
+
+// Best Practice
+function capitalsFirst(str) {
+    let words = str.split(' ');
+    let upper = words.filter(e => e.charAt(0).match(/[A-Z]/));
+    let lower = words.filter(e => e.charAt(0).match(/[a-z]/));
+    return upper.concat(lower).join(' ')
+}
 
 console.log(capitalsFirst("hey You, Sort me Already!")) //  "You, Sort Already! hey me"
 console.log(capitalsFirst("Life gets Sometimes pretty !Hard")) // , "Life Sometimes gets pretty"
