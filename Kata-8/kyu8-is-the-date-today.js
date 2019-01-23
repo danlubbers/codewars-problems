@@ -9,6 +9,14 @@ function isToday(date) {
     return date.toDateString() === new Date().toDateString();
 }
 
+// Different method I found on: https://flaviocopes.com/how-to-determine-date-is-today-javascript/
+// const isToday = (someDate) => {
+//     const today = new Date()
+//     return someDate.getDate() == today.getDate() &&
+//       someDate.getMonth() == today.getMonth() &&
+//       someDate.getFullYear() == today.getFullYear()
+// }
+
 var tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);
 
