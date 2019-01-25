@@ -28,6 +28,7 @@ function sumOfDifferences(arr) {
 //     if (arr.length <= 1) 
 //         return 0
 //     arr.sort((a, b) => a - b)
+//     console.log(arr[arr.length - 1] - arr[0])
 //     return arr[arr.length - 1] - arr[0]
 // }
 
