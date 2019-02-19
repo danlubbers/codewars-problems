@@ -5,8 +5,12 @@
 // My Answer
 x=a=>~~a
 
-// Best Practice 
-x=a=>0|a;
+// Many other ways
+x=a=>0|a
+x=a=>a|0
+x=a=>0^a
+x=a=>a^0 
+x=a=>a|a
 
 console.log(x(1.5), 1);
 console.log(x(1.1), 1);

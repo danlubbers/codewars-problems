@@ -53,6 +53,7 @@ function streetFighterSelection(fighters, position, moves){
     let startCharacter = [];
     let indexOne = position[0];
     let indexTwo = position[1];;
+    let finalArr = [];
          
     startCharacter.push(fighters[indexOne][indexTwo])
     startCharacter
@@ -60,7 +61,7 @@ function streetFighterSelection(fighters, position, moves){
     let movesIndex = moves.map(e=>e)
     movesIndex
     if(movesIndex === "right") {
-
+        
     }
 }
 
