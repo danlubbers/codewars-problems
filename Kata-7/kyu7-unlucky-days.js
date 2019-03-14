@@ -20,7 +20,6 @@ function unluckyDays(year){
     
     for(let i = 0; i < 12; i++) {
         // 13 is the unlucky number we are looking to match
-        console.log(d.setFullYear(year))
         d.setFullYear(year, i, 13)
         // 5 represents friday, the fifth day of the week according to ISO
         // Everytime the day matches friday the 13th the counter increments
