@@ -16,10 +16,10 @@
 //     [ 1, 2, -3, 4, 5, 6, -7, 8 ]   =>  [ 5, 6, -7, 8, 1, 2, -3, 4 ]  
 
 // My Answer
-function swapHeadAndTail(arr) {
-    let halved = arr.length / 2;
-    return arr.slice(Math.round(halved)|0).concat(halved == (halved|0) ? [] : arr[halved|0], arr.slice(0, halved));
-}
+// function swapHeadAndTail(arr) {
+//     let halved = arr.length / 2;
+//     return arr.slice(Math.round(halved)|0).concat(halved == (halved|0) ? [] : arr[halved|0], arr.slice(0, halved));
+// }
 
 // Best Practice
 const swapHeadAndTail = (arr, mid = arr.length / 2) => [
@@ -29,24 +29,22 @@ const swapHeadAndTail = (arr, mid = arr.length / 2) => [
 ]
 
 // Using For Loop
-function swapHeadAndTail(arr) {
-    let half = Math.floor(arr.length / 2);
+// function swapHeadAndTail(arr) {
+//     let half = Math.floor(arr.length / 2);
 
-    let newArr = [];
+//     let newArr = [];
 
-    for(let i = arr.length - half; i < arr.length; i++) {
-        newArr.push(arr[i]);
-    }
+//     for(let i = arr.length - half; i < arr.length; i++) {
+//         newArr.push(arr[i]);
+//     }
     
-    if(arr.length % 2 !== 0) newArr.push(arr[half]);
+//     if(arr.length % 2 !== 0) newArr.push(arr[half]);
 
-    for(let i = 0; i < half; i++) {
-        newArr.push(arr[i])
-    }
-    return newArr
-
-
-}
+//     for(let i = 0; i < half; i++) {
+//         newArr.push(arr[i])
+//     }
+//     return newArr
+// }
 
 console.log(swapHeadAndTail([ 1, 2, 3, 4, 5 ] ), [ 4, 5, 3, 1, 2 ]);
 console.log(swapHeadAndTail([ -1, 2 ]), [ 2, -1 ]);
