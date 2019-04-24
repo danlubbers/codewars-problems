@@ -1,0 +1,74 @@
+// https://www.codewars.com/kata/invalid-input-error-handling-number-1/train/javascript
+
+// Error Handling is very important in coding and seems to be overlooked or not implemented properly.
+
+// #Task
+
+// Your task is to implement a function which takes a string as input and return an object containing the properties vowels and consonants. The vowels property must contain the total count of vowels {a,e,i,o,u}, and the total count of consonants {a,..,z} - {a,e,i,o,u}. Handle invalid input and don't forget to return valid ones.
+
+// #Input
+
+// The input is any random string. You must then discern what are vowels and what are consonants and sum for each category their total occurrences in an object. However you could also receive inputs that are not strings. If this happens then you must return an object with a vowels and consonants total of 0 because the input was NOT a string. Refer to the Example section for a more visual representation of which inputs you could receive and the outputs expected. :)
+
+// Example:
+// ```javascript Input: getCount('test') Output: {vowels:1,consonants:3}
+// Input: getCount('tEst') Output: {vowels:1,consonants:3}
+
+// Input getCount(' ') Output: {vowels:0,consonants:0}
+
+// Input getCount() Output: {vowels:0,consonants:0}
+
+// My Answer
+function getCount(words) {
+    if(typeof words === 'string') {
+
+    let split = words.split('');
+    let vowelRegex = /^[aeiou]$/i;
+    let consonantRegex = /(?![aeiou])[b-z]/i;
+
+    let obj = { vowels: 0, consonants: 0 };
+
+    for(let i = 0; i < split.length; i++) {
+        if(vowelRegex.test(split[i])) obj.vowels++;
+        if(consonantRegex.test(split[i])) obj.consonants++;
+    }
+      return obj
+
+    } else {
+        return { vowels: 0, consonants: 0 };
+    } 
+}
+
+// Using ES6
+const getCount = words => {
+    if(typeof words === 'string') {
+        let obj = { vowels: 0, consonants: 0 };
+        words.split('').forEach((e) => {
+            if(/^[aeiou]$/i.test(e)) obj.vowels++;
+            if(/(?![aeiou])[b-z]/i.test(e)) obj.consonants++  
+        })
+        return obj
+    } else return { vowels: 0, consonants: 0 };
+}
+
+// Best Practice
+function getCount(words) {
+    let f = typeof words === 'string';
+    return {
+        vowels: f ? words.replace(/[^aeiou]/gi, '').length : 0,
+        consonants: f ? words.replace(/[^bcdfghjklmnpqrstvwxyz]/gi,'').length : 0
+    }
+}
+
+
+console.log(getCount('Test'),{vowels:1,consonants:3},'Should return 1 vowel and 3 consonants');
+console.log(getCount('Here is some text'),{vowels:6,consonants:8},'Should return 6 vowel and 8 consonants');
+console.log(getCount('To be a Codewarrior or not to be'),{vowels:12,consonants:13},'Should return 12 vowel and 13 consonants');
+console.log(getCount('To Kata or not to Kata'),{vowels:8,consonants:9},'Should return 8 vowel and 9 consonants');
+console.log(getCount('aeiou'),{vowels:5,consonants:0},'Should return 5 vowel and 0 consonants');
+
+console.log(getCount('TEst'),{vowels:1,consonants:3},'Should return 1 vowel and 3 consonants');
+console.log(getCount('HEre Is sOme text   '),{vowels:6,consonants:8},'Should return 6 vowel and 8 consonants');
+console.log(getCount(),{vowels:0,consonants:0},'Should return 0 vowel and 0 consonants');
+console.log(getCount(['To Kata or not to Kata']),{vowels:0,consonants:0},'Should return 0 vowel and 0 consonants');
+console.log(getCount(undefined),{vowels:0,consonants:0},'Should return 0 vowel and 0 consonants');
