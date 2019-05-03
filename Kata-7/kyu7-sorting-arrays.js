@@ -30,7 +30,7 @@ const sortArray = (a1, a2) => a1.map(e => a2.find(w => e[0] === w[0]));
 
 // Using Reduce
 function sortArray(a1, a2) {
-    let index = a1.reduce((a, b, i) => (a[b[0]] = i, a), {});
+    let index = a1.reduce((acc, curr, idx) => (acc[curr[0]] = idx, acc), {});
     // console.log(index)
     return a2.slice().sort((a, b) => index[a[0]] - index[b[0]])
 }
