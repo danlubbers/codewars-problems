@@ -27,12 +27,12 @@ function humanReadable(seconds) {
 }
 
 // Best Practice
-function humanReadable(seconds) {
-    let pad = function(x) {return (x < 10) ? '0'+x : x;}
-    return  pad(parseInt(seconds / (60 * 60))) + ':' +
-            pad(parseInt(seconds / 60 % 60)) + ':' + 
-            pad(seconds % 60)
-}
+// function humanReadable(seconds) {
+//     let pad = function(x) {return (x < 10) ? '0'+x : x;}
+//     return  pad(parseInt(seconds / (60 * 60))) + ':' +
+//             pad(parseInt(seconds / 60 % 60)) + ':' + 
+//             pad(seconds % 60)
+// }
 
 console.log(humanReadable(0), '00:00:00', 'humanReadable(0)');
 console.log(humanReadable(5), '00:00:05', 'humanReadable(5)');
